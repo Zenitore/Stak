@@ -35,7 +35,9 @@ public class Stack<T> {
         return counter;
     }
 
-//T peek()                //look at the top element without removing
+    public T peek(){
+        return currentNode.getValue();
+    }                //look at the top element without removing
 
 
 }
