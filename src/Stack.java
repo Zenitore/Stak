@@ -1,3 +1,5 @@
+import com.sun.istack.internal.NotNull;
+
 public class Stack<T> {
 
     StackNode<T> currentNode = new StackNode<>();
@@ -19,6 +21,16 @@ public class Stack<T> {
         currentNode = currentNode.getParentNode();
         return deletedNode.getValue();
     }                 //remove and return the top element
+
+    public boolean isEmpty(){
+        return currentNode.getValue() == null && currentNode.getParentNode().equals(null);
+    }
+
+
+    public int size(){
+
+    }
+//T peek()                //look at the top element without removing
 
 
 }
