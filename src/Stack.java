@@ -26,10 +26,15 @@ public class Stack<T> {
         return currentNode.getValue() == null && currentNode.getParentNode().equals(null);
     }
 
-
     public int size(){
-
+        int counter = 0;
+        while (!currentNode.getParentNode().equals(null)){
+            counter++;
+            currentNode = currentNode.getParentNode();
+        }
+        return counter;
     }
+
 //T peek()                //look at the top element without removing
 
 
