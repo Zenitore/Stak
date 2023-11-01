@@ -14,5 +14,11 @@ public class Stack<T> {
         }
     }    //add an element
 
+    public T pop(){
+        StackNode<T> deletedNode = currentNode;
+        currentNode = currentNode.getParentNode();
+        return deletedNode.getValue();
+    }                 //remove and return the top element
+
 
 }
