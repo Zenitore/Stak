@@ -2,7 +2,8 @@ import com.sun.istack.internal.NotNull;
 
 public class Stack<T> {
 
-    StackNode<T> currentNode = new StackNode<>();
+    StackNode<T> sizeNode = new StackNode<>();
+    StackNode<T> currentNode = new StackNode<>(null, sizeNode);
     public Stack(){
     }
 
@@ -23,14 +24,15 @@ public class Stack<T> {
     }                 //remove and return the top element
 
     public boolean isEmpty(){
-        return currentNode.getValue() == null && currentNode.getParentNode().equals(null);
+        return size() == 0;
     }
 
     public int size(){
+        StackNode<T> localCurrentNode = currentNode;
         int counter = 0;
-        while (!currentNode.getParentNode().equals(null)){
+        while (localCurrentNode.getParentNode() != sizeNode){
             counter++;
-            currentNode = currentNode.getParentNode();
+            localCurrentNode = localCurrentNode.getParentNode();
         }
         return counter;
     }
