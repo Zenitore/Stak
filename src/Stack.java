@@ -1,40 +1,43 @@
-import com.sun.istack.internal.NotNull;
+/**
+ * StackNode.java
+ * Author: Ethan Ayers
+ * Date: 09/21/2023
+ * Collaborators: Franklin Young, Luke O'drobinak, Roan Silver
+ * Citations: Google, Oracle Java Docs, GitHub Documentation, Stack Overflow
+ **/
 
 public class Stack<T> {
 
-    StackNode<T> sizeNode = new StackNode<>();
-    StackNode<T> currentNode = new StackNode<>(null, sizeNode);
+    int size = 0;
+    StackNode<T> currentNode = new StackNode<>();
     public Stack(){
     }
 
     public void push(T element){
-        if (currentNode.getValue() != null){
-            StackNode<T> createdNode = new StackNode<>(element, currentNode);
+        StackNode<T> createdNode = new StackNode<>(element);
+        if (size == 0){
             currentNode = createdNode;
         }
         else{
-            currentNode.setValue(element);
+           createdNode.setParentNode(currentNode);
+           currentNode = createdNode;
         }
+        size++;
     }    //add an element
 
     public T pop(){
         StackNode<T> deletedNode = currentNode;
         currentNode = currentNode.getParentNode();
+        size--;
         return deletedNode.getValue();
     }                 //remove and return the top element
 
     public boolean isEmpty(){
-        return size() == 0;
+        return size == 0;
     }
 
     public int size(){
-        StackNode<T> localCurrentNode = currentNode;
-        int counter = 0;
-        while (localCurrentNode.getParentNode() != sizeNode){
-            counter++;
-            localCurrentNode = localCurrentNode.getParentNode();
-        }
-        return counter;
+        return size;
     }
 
     public T peek(){

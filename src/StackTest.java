@@ -1,3 +1,12 @@
+/**
+ * StackNode.java
+ * Author: Ethan Ayers
+ * Date: 09/21/2023
+ * Collaborators: Franklin Young, Luke O'drobinak, Roan Silver
+ * Citations: Google, Oracle Java Docs, GitHub Documentation, Stack Overflow
+ **/
+
+
 public class StackTest {
     public static void main(String[] args) {
         Stack<Integer> s = new Stack<>();

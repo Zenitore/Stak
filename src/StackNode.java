@@ -1,3 +1,13 @@
+/**
+ * StackNode.java
+ * Author: Ethan Ayers
+ * Date: 09/21/2023
+ * Collaborators: Franklin Young, Luke O'drobinak, Roan Silver
+ * Citations: Google, Oracle Java Docs, GitHub Documentation, Stack Overflow
+ **/
+
+
+
 public class StackNode<T> {
 
     private StackNode<T> parentNode;
